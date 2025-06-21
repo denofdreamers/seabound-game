@@ -1,0 +1,81 @@
+<style>
+  body.map-screen {
+  margin: 0;
+  padding: 0;
+  background-color: #001820;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+  font-family: 'Verdana', sans-serif;
+}
+
+.map-wrapper {
+  width: 1280px;
+  height: 720px;
+  position: relative;
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
+}
+
+.map-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.map-background {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.map-icon {
+  position: absolute;
+  width: 80px; /* or match the actual PNG size */
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.2s ease, filter 0.3s ease;
+}
+
+.map-icon.glow:hover {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 10px #00ffe0);
+}
+
+  </style>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Coralreach Map</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="map-screen">
+
+  <div class="map-wrapper">
+    <div class="map-container">
+      <img src="https://raw.githubusercontent.com/denofdreamers/seabound-game/refs/heads/main/assets/images/background/UnderwaterMap.jpg" alt="Coralreach Map" class="map-background" />
+
+      <!-- Clickable PNG Icons -->
+      <img src="https://raw.githubusercontent.com/denofdreamers/seabound-game/refs/heads/main/assets/images/background/HouseTest.png" class="map-icon glow" id="nook-icon" style="top: 420px; left: 220px;" />
+      <img src="assets/images/icons/market.png" class="map-icon glow" id="market-icon" style="top: 250px; left: 720px;" />
+      <img src="assets/images/icons/kelpforest.png" class="map-icon glow" id="kelp-icon" style="top: 560px; left: 560px;" />
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('nook-icon').addEventListener('click', () => {
+      window.location.href = 'nook.html';
+    });
+    document.getElementById('market-icon').addEventListener('click', () => {
+      alert('Tide Market is under construction!');
+    });
+    document.getElementById('kelp-icon').addEventListener('click', () => {
+      alert('Kelp Forest is coming soon!');
+    });
+  </script>
+</body>
+</html>
