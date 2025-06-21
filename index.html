@@ -2,22 +2,20 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Welcome to Coralreach</title>
+  <title>Seabound</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<body class="intro-screen">
-  <div class="text-box">
-    <p>
-      You’ve finally arrived in Coralreach, a hidden village beneath the tide.<br /><br />
-      After a long journey, the coral council has granted you a cozy sea-nook to call your own.<br /><br />
-      It’s time to explore, collect, and begin your life beneath the blue.
-    </p>
-    <button id="enter-button">Enter Coralreach</button>
+<body class="title-screen">
+
+  <div class="overlay">
+    <h1>Seabound</h1>
+    <p>A cozy ocean-life game</p>
+    <button id="start-button">Start</button>
   </div>
 
   <script>
-    document.getElementById('enter-button').addEventListener('click', () => {
-      window.location.href = 'map.html';
+    document.getElementById('start-button').addEventListener('click', () => {
+      window.location.href = 'intro.html';
     });
   </script>
 </body>
