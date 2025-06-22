@@ -1,56 +1,78 @@
-<style>
-  body.map-screen {
-  margin: 0;
-  padding: 0;
-  background-color: #001820;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  overflow: hidden;
-  font-family: 'Verdana', sans-serif;
-}
-
-.map-wrapper {
-  width: 1280px;
-  height: 720px;
-  position: relative;
-  box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
-}
-
-.map-container {
-  width: 100%;
-  height: 100%;
-  position: relative;
-}
-
-.map-background {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.map-icon {
-  position: absolute;
-  width: auto;
-  height: auto;
-  cursor: pointer;
-  transition: transform 0.2s ease, filter 0.3s ease;
-}
-
-.map-icon.glow:hover {
-  filter: drop-shadow(0 0 10px #fff);
-}
-
-  </style>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <title>Coralreach Map</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    body.map-screen {
+      margin: 0;
+      padding: 0;
+      background-color: #001820;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+      font-family: 'Verdana', sans-serif;
+    }
+
+    .map-wrapper {
+      width: 1280px;
+      height: 720px;
+      position: relative;
+      box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
+    }
+
+    .map-container {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+
+    .map-background {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .map-location {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      pointer-events: auto;
+    }
+
+    .map-icon {
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.2s ease, filter 0.3s ease;
+    }
+
+    .map-icon.glow:hover {
+      filter: drop-shadow(0 0 10px #fff);
+      transform: scale(1.05);
+    }
+
+    .location-label {
+      margin-top: 5px;
+      background: rgba(0, 0, 0, 0.6);
+      color: #fff;
+      padding: 4px 8px;
+      border-radius: 6px;
+      font-size: 14px;
+      white-space: nowrap;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+      pointer-events: none;
+    }
+
+    .map-location:hover .location-label {
+      opacity: 1;
+    }
+  </style>
 </head>
 <body class="map-screen">
 
@@ -58,10 +80,24 @@
     <div class="map-container">
       <img src="https://raw.githubusercontent.com/denofdreamers/seabound-game/refs/heads/main/assets/images/background/UnderwaterMap.jpg" alt="Coralreach Map" class="map-background" />
 
-      <!-- Clickable PNG Icons -->
-      <img src="https://raw.githubusercontent.com/denofdreamers/seabound-game/refs/heads/main/assets/images/background/HouseTest.png" class="map-icon glow" id="nook-icon" style="top: 177px; left: 820px;" />
-      <img src="assets/images/icons/market.png" class="map-icon glow" id="market-icon" style="top: 250px; left: 720px;" />
-      <img src="assets/images/icons/kelpforest.png" class="map-icon glow" id="kelp-icon" style="top: 560px; left: 560px;" />
+      <!-- Nook -->
+      <div class="map-location" style="top: 177px; left: 820px;">
+        <img src="https://raw.githubusercontent.com/denofdreamers/seabound-game/refs/heads/main/assets/images/background/HouseTest.png" class="map-icon glow" id="nook-icon" />
+        <span class="location-label">Your Sea-Nook</span>
+      </div>
+
+      <!-- Market -->
+      <div class="map-location" style="top: 250px; left: 720px;">
+        <img src="assets/images/icons/market.png" class="map-icon glow" id="market-icon" />
+        <span class="location-label">Tide Market</span>
+      </div>
+
+      <!-- Kelp Forest -->
+      <div class="map-location" style="top: 560px; left: 560px;">
+        <img src="assets/images/icons/kelpforest.png" class="map-icon glow" id="kelp-icon" />
+        <span class="location-label">Kelp Forest</span>
+      </div>
+
     </div>
   </div>
 
@@ -69,12 +105,15 @@
     document.getElementById('nook-icon').addEventListener('click', () => {
       window.location.href = 'nook.html';
     });
+
     document.getElementById('market-icon').addEventListener('click', () => {
       alert('Tide Market is under construction!');
     });
+
     document.getElementById('kelp-icon').addEventListener('click', () => {
       alert('Kelp Forest is coming soon!');
     });
   </script>
 </body>
 </html>
+
